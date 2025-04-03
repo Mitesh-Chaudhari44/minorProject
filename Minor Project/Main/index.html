@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav>
+        <div class="main-nav container flex">
+            <a href="#" onclick="reload()" class="company-logo">
+                <img src="Logo.png" alt="News Portal Logo" class="logo">
+            </a>
+            <div class="nav-links">
+                <ul class="flex">
+                    <li class="dropdown">
+                        <span class="nav-item">Sports</span>
+                        <ul class="dropdown-menu">
+                            <li onclick="onNavItemClick('cricket')">Cricket</li>
+                            <li onclick="onNavItemClick('football')">Football</li>
+                            <li onclick="onNavItemClick('basketball')">Basketball</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <span class="nav-item">Technology</span>
+                        <ul class="dropdown-menu">
+                            <li onclick="onNavItemClick('ai')">AI</li>
+                            <li onclick="onNavItemClick('gadgets')">Gadgets</li>
+                            <li onclick="onNavItemClick('software')">Software</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <span class="nav-item">Health</span>
+                        <ul class="dropdown-menu">
+                            <li onclick="onNavItemClick('fitness')">Fitness</li>
+                            <li onclick="onNavItemClick('nutrition')">Nutrition</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <span class="nav-item">Finance</span>
+                        <ul class="dropdown-menu">
+                            <li onclick="onNavItemClick('stocks')">Stocks</li>
+                            <li onclick="onNavItemClick('crypto')">Cryptocurrency</li>
+                            <li onclick="onNavItemClick('banking')">Banking</li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <span class="nav-item">Education</span>
+                        <ul class="dropdown-menu">
+                            <li onclick="onNavItemClick('higher-education')">Higher Education</li>
+                            <li onclick="onNavItemClick('school-education')">School Education</li>
+                            <li onclick="onNavItemClick('edtech')">EdTech</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="search-bar flex">
+                <input id="search-text" type="text" class="news-input" placeholder="Search news...">
+                <button id="search-button" class="search-button">Search</button>
+            </div>
+            
+            <!-- Signup and login -->
+            <div class="auth-buttons" id="auth-section">
+                <button id="signup-btn" class="signup-button">Sign Up</button>
+                <button id="login-btn" class="login-button">Login</button>
+            </div>
+            
+            <!-- Profile menu -->
+            <div class="profile-menu" id="profile-section" style="display: none;">
+                <div class="profile-icon" id="profile-icon">
+                    <img src="https://via.placeholder.com/40" alt="Profile Image">
+                    <span class="profile-name" id="profile-username">User</span> ⌄
+                </div>
+                <ul class="profile-dropdown" id="profile-dropdown">
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#" id="logout-button">Logout</a></li>
+                </ul>
+            </div>
+
+
+            <img src="profile.png" class="user-pic" onclick="toggleMenu()">
+            <div class="sub-menu-wrap"  id="submenu">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="Logo.png" alt="user picture">
+                        <h3>Ashish Gaikar</h3>
+                    </div>
+                    <hr>
+                    <a href="#" class="sub-menu-link">
+                        <img src="profile.png">
+                        <p>Edit Profile</p>
+                        <span>></span>
+                    </a>
+
+                    <a href="#" class="sub-menu-link">
+                        <img src="setting.png">
+                        <p>Settings and Privacy</p>
+                        <span>></span>
+                    </a>
+
+                    <a href="#" class="sub-menu-link">
+                        <img src="help.png">
+                        <p>Help</p>
+                        <span>></span>
+                    </a>
+
+                    <a href="/" class="sub-menu-link">
+                        <img src="logout.png">
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="hero-banner">
+            <h1>Welcome to News Portal</h1>
+            <p>Stay updated with the latest news from around the world.</p>
+        </div>
+        <div class="cards-container container flex" id="cards-container">
+            <!-- Dynamic cards will be injected here -->
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container container flex">
+            <div class="about">
+                <h4>About Us</h4>
+                <p>Your go-to source for the latest news and updates from around the world.</p>
+            </div>
+            <div class="links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <h4>Follow Us</h4>
+                <a href="#"><img src="./assets/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="./assets/twitter-icon.png" alt="Twitter"></a>
+                <a href="#"><img src="./assets/instagram-icon.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Template for News Cards -->
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">Source Name · Date</h6>
+                <p class="news-desc" id="news-desc">News description goes here...</p>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+    <script>
+
+        let submenu=document.getElementById("submenu");
+
+        function toggleMenu(){
+            submenu.classList.toggle("open-menu");
+        }
+        function checkAuth() {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                // Redirect to login page if not logged in
+                window.location.href = "/";
+            }
+        }
+    
+        // Call checkAuth on page load
+        checkAuth();
+    </script>
+    <script>
+        document.getElementById("logout-button").addEventListener("click", () => {
+            localStorage.removeItem("token"); // Clear the token
+            localStorage.removeItem("loggedInUser"); // Also clear this
+            window.location.href = "/"; // Redirect to login page
+        });
+    </script>
+</body>
+
+</html>
