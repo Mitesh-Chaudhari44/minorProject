@@ -126,6 +126,18 @@
             <h1>Welcome to News Portal</h1>
             <p>Stay updated with the latest news from around the world.</p>
         </div>
+        
+        <!-- Viewed Articles Section -->
+        <div id="last-viewed-section" class="container" data-just-added="false" style="display: none; margin: 20px auto; padding: 15px; background-color: #f8f9fa; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            <h3>Last 3 Viewed Articles</h3>
+            <div class="last-viewed-content" style="margin-top: 10px; max-height: 400px; overflow-y: auto;">
+                <!-- Articles will be dynamically inserted here -->
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+                <button id="clear-history" style="padding: 8px 15px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">Clear History</button>
+            </div>
+        </div>
+        
         <div class="cards-container container flex" id="cards-container">
             <!-- Dynamic cards will be injected here -->
         </div>
@@ -195,6 +207,7 @@
             window.location.href = "/"; // Redirect to login page
         });
     </script>
+    <script src="tts.js"></script>
 </body>
 
 </html>
